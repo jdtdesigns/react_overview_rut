@@ -1,18 +1,14 @@
-function Header(props) {
-  const handleLinkClick = e => {
-    e.preventDefault();
+import { NavLink } from 'react-router-dom'
 
-    props.setPage(e.target.innerText.toLowerCase());
-  }
-
+function Header() {
   return (
     <header>
       <h3>Portfolio Practice</h3>
 
       <nav>
-        <a onClick={handleLinkClick} href="/" className={props.page === 'home' ? 'active' : ''}>Home</a>
-        <a onClick={handleLinkClick} href="/about" className={props.page === 'about' ? 'active' : ''}>About</a>
-        <a onClick={handleLinkClick} href="/contact" className={props.page === 'contact' ? 'active' : ''}>Contact</a>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </nav>
     </header>
   )
