@@ -1,20 +1,15 @@
-import Header from './components/Header'
+import JSXVariables from "./components/JSXVariables";
 
 function App() {
-  const title = 'React Overview'
-  const showTitle = true
-
   return (
     <>
+      <JSXVariables />
 
-      <Header mainTitle={title} />
-      <main>
-        {showTitle && <h1>{title}</h1>}
-
-        <p>{5 > 3 ? 'Yep, 5 is greater' : 'Nope, math is not true'}</p>
-      </main>
+      <div className="red">
+        <h1>App Component Div</h1>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
