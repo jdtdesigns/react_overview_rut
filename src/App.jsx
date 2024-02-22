@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Header from './components/Header'
 // Import the Home component
@@ -9,11 +9,26 @@ import About from './pages/About'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
+  const [quote, setQuote] = useState('')
+
+  useEffect(() => {
+    const quote_url = 'https://api.quotable.io/random'
+
+    fetch(quote_url)
+      .then(res => res.json())
+      .then(data => {
+        setQuote(data.content)
+      })
+  }, [isDarkMode])
 
   return (
     <div className={`main-content ${isDarkMode ? 'dark' : ''}`}>
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <main>
+        <div className="quote-wrap">
+          {quote && <p className="quote">"{quote}"</p>}
+        </div>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

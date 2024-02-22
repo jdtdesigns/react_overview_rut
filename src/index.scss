@@ -1,8 +1,14 @@
 $bg-dark: #242424;
 $btn-dark: #1a1a1a;
+$font-family: Inter,
+system-ui,
+Avenir,
+Helvetica,
+Arial,
+sans-serif;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: $font-family;
   line-height: 1.5;
   font-weight: 400;
   color: #444;
@@ -53,6 +59,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .main-content {
   flex: 1;
 }
@@ -62,6 +72,15 @@ button:focus-visible {
   color: #eee;
 }
 
+.quote-wrap {
+  min-height: 70px;
+}
+
+.quote {
+  text-align: center;
+  max-width: 450px;
+  margin: 0 auto;
+}
 
 /* Custom Styles */
 header {
@@ -95,6 +114,28 @@ header {
     }
   }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  > * {
+    padding: 9px 15px;
+    margin-bottom: 5px;
+    font-family: $font-family;
+  }
+  input, textarea {
+    border-radius: 3px;
+    outline: none;
+  }
+  button {
+    background-color: #1ccd71;
+    color: #fff;
+    border-radius: 3px;
+  }
+}
+
 
 /* Responsive Styles */
 @media (prefers-color-scheme: light) {
