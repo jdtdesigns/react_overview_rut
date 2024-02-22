@@ -1,11 +1,11 @@
+$bg-dark: #242424;
+$btn-dark: #1a1a1a;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #444;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,7 +22,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+body, #root {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -54,6 +53,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.main-content {
+  flex: 1;
+}
+
+.dark {
+  background-color: $bg-dark;
+  color: #eee;
+}
+
 
 /* Custom Styles */
 header {
@@ -62,6 +70,21 @@ header {
   align-items: center;
   justify-content: space-between;
   nav {
+    span {
+      margin-right: 10px;
+    }
+    button {
+      &.dark-btn {
+        background-color: $btn-dark;
+        color: #eee;
+      }
+      &.theme-btn {
+        margin-right: 20px;
+        padding: 5px 10px;
+        font-size: .9rem;
+      }
+    }
+
     a {
       &:not(:last-child) {
         margin-right: 5px;

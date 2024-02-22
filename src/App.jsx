@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 import Header from './components/Header'
 // Import the Home component
@@ -7,9 +8,11 @@ import Contact from './pages/Contact'
 import About from './pages/About'
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true)
+
   return (
-    <>
-      <Header />
+    <div className={`main-content ${isDarkMode ? 'dark' : ''}`}>
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -17,7 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
-    </>
+    </div>
   )
 }
 
