@@ -83,6 +83,13 @@ button:focus-visible {
 }
 
 /* Custom Styles */
+.loading-overlay {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   padding: 8px 3%;
   display: flex;

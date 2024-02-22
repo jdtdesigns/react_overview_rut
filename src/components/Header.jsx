@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function Header(props) {
   const toggleTheme = () => {
+    localStorage.setItem('mode', !props.isDarkMode)
     props.setIsDarkMode(!props.isDarkMode)
   }
 
