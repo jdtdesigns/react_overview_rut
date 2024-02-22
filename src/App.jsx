@@ -1,27 +1,9 @@
-import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+// First we import Greeting from the components folder
+import Greeting from "./components/Greeting";
 
-import Header from './components/Header'
-// Import the Home component
-import Home from './pages/Home'
-import Contact from './pages/Contact'
-import About from './pages/About'
-
+// Our App component returns the Greeting component
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
-
-  return (
-    <div className={`main-content ${isDarkMode ? 'dark' : ''}`}>
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
-    </div>
-  )
+  return <Greeting />;
 }
 
-export default App
+export default App;
