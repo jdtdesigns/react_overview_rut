@@ -1,20 +1,35 @@
-import Header from './components/Header'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
-  const title = 'React Overview'
-  const showTitle = true
+  const url = 'https://swapi.dev/api/people'
+  const fruits = ['orange', 'apple', 'grape']
+  const [chars, setChars] = useState([])
+
+  useEffect(() => {
+    axios.get(url)
+      .then((res) => {
+        setChars(res.data.results)
+      })
+  }, [])
 
   return (
     <>
+      {fruits.map((fruit, index) => (
+        <p key={index}>{fruit}</p>
+      ))}
 
-      <Header mainTitle={title} />
       <main>
-        {showTitle && <h1>{title}</h1>}
-
-        <p>{5 > 3 ? 'Yep, 5 is greater' : 'Nope, math is not true'}</p>
+        {chars.map((char, index) => (
+          <div key={index}>
+            <h3>Name: {char.name}</h3>
+            <p>Birth Year: {char.birth_year}</p>
+          </div>
+        ))}
       </main>
     </>
   )
 }
 
 export default App
+

@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 0 5%;
 }
 
 h1 {
@@ -53,6 +54,19 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+#root, main {
+  width: 100%;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* main > div {
+  flex: 1;
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
